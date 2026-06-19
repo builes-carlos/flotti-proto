@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Plan de mantenimiento — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="mantenimiento_plan" data-title="Plan de mantenimiento">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <div class="flex items-end justify-between mb-4">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-bold text-slate-900">Plan de mantenimiento</h1>
+      <p class="hidden lg:block text-sm text-slate-400 mt-0.5">Tipos de servicio e intervalos configurados</p>
+    </div>
+    <button class="btn btn-primary btn-sm">+ Nuevo tipo</button>
+  </div>
+
+  <!-- Card list -->
+  <div class="space-y-2">
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Cambio de aceite</div>
+        <div class="lc-sub">Cada 5.000 km o 3 meses</div>
+        <span class="badge badge-preventive mt-1.5">Preventivo</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Revisión de frenos</div>
+        <div class="lc-sub">Cada 15.000 km o 6 meses</div>
+        <span class="badge badge-preventive mt-1.5">Preventivo</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Cambio de llantas</div>
+        <div class="lc-sub">Cada 40.000 km</div>
+        <span class="badge badge-preventive mt-1.5">Preventivo</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Revisión general</div>
+        <div class="lc-sub">Cada 30.000 km o 12 meses</div>
+        <span class="badge badge-preventive mt-1.5">Preventivo</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Cambio de filtro de aire</div>
+        <div class="lc-sub">Cada 10.000 km</div>
+        <span class="badge badge-preventive mt-1.5">Preventivo</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Reparación de transmisión</div>
+        <div class="lc-sub">Según diagnóstico</div>
+        <span class="badge badge-corrective mt-1.5">Correctivo</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Reparación eléctrica</div>
+        <div class="lc-sub">Según diagnóstico</div>
+        <span class="badge badge-corrective mt-1.5">Correctivo</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+  </div>
+
+</main>
+
+<script src="shell.js"></script>
+</body>
+</html>

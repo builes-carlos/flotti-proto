@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Vehículos — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="vehiculos" data-title="Vehículos">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <!-- Title -->
+  <div class="flex items-end justify-between mb-3">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-bold text-slate-900">Vehículos</h1>
+      <p class="hidden lg:block text-sm text-slate-400 mt-0.5">Inventario de la flota</p>
+    </div>
+    <a href="#" class="btn btn-primary btn-sm">+ Nuevo vehículo</a>
+  </div>
+
+  <!-- Filter row -->
+  <div class="flex items-center gap-2 mb-3">
+    <div class="segmented flex-1">
+      <button class="seg active" onclick="setSeg(this)">Todos</button>
+      <button class="seg" onclick="setSeg(this)">Asignados</button>
+      <button class="seg" onclick="setSeg(this)">Disponibles</button>
+      <button class="seg" onclick="setSeg(this)">En taller</button>
+    </div>
+    <button onclick="FlottiShell.openSheet('filter-sheet')" class="btn btn-secondary btn-sm flex-shrink-0" aria-label="Filtros">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 4.5h18M6 12h12M10 19.5h4" stroke-linecap="round"/></svg>
+      <span class="hidden sm:inline">Filtros</span>
+    </button>
+  </div>
+
+  <!-- ===== MOBILE: card list ===== -->
+  <div class="space-y-2">
+
+    <a href="vehiculo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">ABC123</div>
+        <div class="lc-sub">Carro · Chevrolet Spark / 2021</div>
+        <div class="lc-sub mt-0.5">Juan Pérez Gómez</div>
+        <span class="badge badge-assigned mt-1.5">Asignado</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="vehiculo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">XYZ789</div>
+        <div class="lc-sub">Carro · Renault Logan / 2019</div>
+        <div class="lc-sub mt-0.5">María Restrepo López</div>
+        <span class="badge badge-assigned mt-1.5">Asignado</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="vehiculo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">JKL456</div>
+        <div class="lc-sub">Carro · Kia Picanto / 2020</div>
+        <div class="lc-sub mt-0.5 text-slate-400">Sin acuerdo activo</div>
+        <span class="badge badge-available mt-1.5">Disponible</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="vehiculo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">MNO321</div>
+        <div class="lc-sub">Carro · Hyundai i10 / 2022</div>
+        <div class="lc-sub mt-0.5">Sofía Cárdenas Ruiz</div>
+        <span class="badge badge-assigned mt-1.5">Asignado</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="vehiculo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">PQR654</div>
+        <div class="lc-sub">Moto · Honda CB190R / 2023</div>
+        <div class="lc-sub mt-0.5">Diego Mora Castillo</div>
+        <span class="badge badge-maintenance mt-1.5">En taller</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="vehiculo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">STU987</div>
+        <div class="lc-sub">Carro · Suzuki Alto / 2018</div>
+        <div class="lc-sub mt-0.5 text-slate-400">Sin acuerdo activo</div>
+        <span class="badge badge-available mt-1.5">Disponible</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+  </div>
+
+  <!-- pagination -->
+  <div class="flex items-center justify-between mt-4 text-sm text-slate-500">
+    <span>6 de 52 vehículos</span>
+    <div class="flex gap-2">
+      <button class="btn btn-secondary btn-sm" disabled>Anterior</button>
+      <button class="btn btn-secondary btn-sm">Siguiente</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- Filter bottom-sheet -->
+<div class="sheet-backdrop" id="filter-sheet-backdrop" onclick="FlottiShell.closeSheet('filter-sheet')"></div>
+<div class="sheet" id="filter-sheet">
+  <div class="sheet-handle"></div>
+  <div class="flex items-center justify-between mb-3">
+    <span class="text-sm font-bold text-slate-900">Filtros</span>
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="text-sm text-slate-400">Cerrar</button>
+  </div>
+  <div class="field"><label>Tipo</label><select><option>Todos</option><option>Carro</option><option>Moto</option></select></div>
+  <div class="field"><label>Ordenar</label><select><option>Placa A→Z</option><option>Más recientes</option><option>Estado</option></select></div>
+  <div class="flex gap-2">
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-secondary btn-block">Limpiar</button>
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-primary btn-block">Aplicar</button>
+  </div>
+</div>
+
+<script src="shell.js"></script>
+<script>
+  function setSeg(el) {
+    el.parentElement.querySelectorAll('.seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Acuerdos — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="acuerdos" data-title="Acuerdos">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <!-- Title -->
+  <div class="flex items-end justify-between mb-3">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-bold text-slate-900">Acuerdos</h1>
+      <p class="hidden lg:block text-sm text-slate-400 mt-0.5">Contratos de arrendamiento</p>
+    </div>
+    <a href="#" class="btn btn-primary btn-sm">+ Nuevo acuerdo</a>
+  </div>
+
+  <!-- Totals strip -->
+  <div class="totals-strip mb-3">
+    <div class="tot"><div class="lbl">Activos</div><div class="val">40</div></div>
+    <div class="tot"><div class="lbl">Finalizados</div><div class="val" style="color:#0369a1">12</div></div>
+    <div class="tot"><div class="lbl">Cancelados</div><div class="val" style="color:#9f1239">3</div></div>
+  </div>
+
+  <!-- Filter row -->
+  <div class="flex items-center gap-2 mb-3">
+    <div class="segmented flex-1">
+      <button class="seg active" onclick="setSeg(this)">Todos</button>
+      <button class="seg" onclick="setSeg(this)">Activos</button>
+      <button class="seg" onclick="setSeg(this)">Finalizados</button>
+      <button class="seg" onclick="setSeg(this)">Cancelados</button>
+    </div>
+    <button onclick="FlottiShell.openSheet('filter-sheet')" class="btn btn-secondary btn-sm flex-shrink-0" aria-label="Filtros">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 4.5h18M6 12h12M10 19.5h4" stroke-linecap="round"/></svg>
+      <span class="hidden sm:inline">Filtros</span>
+    </button>
+  </div>
+
+  <!-- ===== MOBILE: card list ===== -->
+  <div class="space-y-2">
+
+    <a href="acuerdo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title"><span class="font-mono">CT-2026-014</span> · <span class="font-mono text-slate-500">ABC123</span></div>
+        <div class="lc-sub">Juan Pérez Gómez · mensual</div>
+        <span class="badge badge-active mt-1.5">Activo</span>
+      </div>
+      <div class="lc-right">
+        <div class="lc-amount">$250.000</div>
+        <div class="text-xs text-slate-400 mt-0.5">/ mes</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="acuerdo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title"><span class="font-mono">CT-2026-011</span> · <span class="font-mono text-slate-500">XYZ789</span></div>
+        <div class="lc-sub">María Restrepo López · mensual</div>
+        <span class="badge badge-active mt-1.5">Activo</span>
+      </div>
+      <div class="lc-right">
+        <div class="lc-amount">$180.000</div>
+        <div class="text-xs text-slate-400 mt-0.5">/ mes</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="acuerdo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title"><span class="font-mono">CT-2026-009</span> · <span class="font-mono text-slate-500">MNO321</span></div>
+        <div class="lc-sub">Sofía Cárdenas Ruiz · semanal</div>
+        <span class="badge badge-active mt-1.5">Activo</span>
+      </div>
+      <div class="lc-right">
+        <div class="lc-amount">$65.000</div>
+        <div class="text-xs text-slate-400 mt-0.5">/ sem</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="acuerdo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title"><span class="font-mono">CT-2026-007</span> · <span class="font-mono text-slate-500">PQR654</span></div>
+        <div class="lc-sub">Diego Mora Castillo · mensual</div>
+        <span class="badge badge-active mt-1.5">Activo</span>
+      </div>
+      <div class="lc-right">
+        <div class="lc-amount">$250.000</div>
+        <div class="text-xs text-slate-400 mt-0.5">/ mes</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="acuerdo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title"><span class="font-mono">CT-2025-033</span> · <span class="font-mono text-slate-500">JKL456</span></div>
+        <div class="lc-sub">Andrés Galindo Torres · mensual</div>
+        <span class="badge badge-finished mt-1.5">Finalizado</span>
+      </div>
+      <div class="lc-right">
+        <div class="lc-amount text-slate-400">$220.000</div>
+        <div class="text-xs text-slate-400 mt-0.5">/ mes</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="acuerdo-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title"><span class="font-mono">CT-2025-021</span> · <span class="font-mono text-slate-500">STU987</span></div>
+        <div class="lc-sub">Carlos Herrera Duque · mensual</div>
+        <span class="badge badge-cancelled mt-1.5">Cancelado</span>
+      </div>
+      <div class="lc-right">
+        <div class="lc-amount text-slate-400">$200.000</div>
+        <div class="text-xs text-slate-400 mt-0.5">/ mes</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+  </div>
+
+  <!-- pagination -->
+  <div class="flex items-center justify-between mt-4 text-sm text-slate-500">
+    <span>6 de 55 acuerdos</span>
+    <div class="flex gap-2">
+      <button class="btn btn-secondary btn-sm" disabled>Anterior</button>
+      <button class="btn btn-secondary btn-sm">Siguiente</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- Filter bottom-sheet -->
+<div class="sheet-backdrop" id="filter-sheet-backdrop" onclick="FlottiShell.closeSheet('filter-sheet')"></div>
+<div class="sheet" id="filter-sheet">
+  <div class="sheet-handle"></div>
+  <div class="flex items-center justify-between mb-3">
+    <span class="text-sm font-bold text-slate-900">Filtros</span>
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="text-sm text-slate-400">Cerrar</button>
+  </div>
+  <div class="field"><label>Conductor</label><select><option>Todos los conductores</option><option>Juan Pérez Gómez</option><option>María Restrepo López</option></select></div>
+  <div class="field"><label>Frecuencia</label><select><option>Todas</option><option>Mensual</option><option>Semanal</option><option>Diaria</option></select></div>
+  <div class="field"><label>Ordenar</label><select><option>Más recientes</option><option>Contrato A→Z</option><option>Cuota mayor</option></select></div>
+  <div class="flex gap-2">
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-secondary btn-block">Limpiar</button>
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-primary btn-block">Aplicar</button>
+  </div>
+</div>
+
+<script src="shell.js"></script>
+<script>
+  function setSeg(el) {
+    el.parentElement.querySelectorAll('.seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

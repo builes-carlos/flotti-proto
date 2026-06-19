@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Legales — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="legales" data-title="Legales">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <div class="flex items-end justify-between mb-3">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-bold text-slate-900">Legales</h1>
+      <p class="hidden lg:block text-sm text-slate-400 mt-0.5">SOAT y tecnomecánica por vehículo</p>
+    </div>
+  </div>
+
+  <!-- Totals strip -->
+  <div class="totals-strip mb-3">
+    <div class="tot"><div class="lbl">Vigentes</div><div class="val" style="color:#059669">7</div></div>
+    <div class="tot"><div class="lbl">Por vencer</div><div class="val" style="color:#d97706">3</div></div>
+    <div class="tot"><div class="lbl">Vencidos</div><div class="val" style="color:#dc2626">2</div></div>
+  </div>
+
+  <!-- Segmented filter -->
+  <div class="segmented mb-3">
+    <button class="seg active" onclick="setSeg(this)">Todos</button>
+    <button class="seg" onclick="setSeg(this)">Por vencer</button>
+    <button class="seg" onclick="setSeg(this)">Vencidos</button>
+  </div>
+
+  <!-- Card list -->
+  <div class="space-y-2">
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">ABC-123</div>
+        <div class="lc-sub">SOAT · vence 15 jul 2026</div>
+        <span class="badge badge-warning mt-1.5">Por vencer</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">26 días</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">ABC-123</div>
+        <div class="lc-sub">Tecnomecánica · vence 30 nov 2026</div>
+        <span class="badge badge-active mt-1.5">Vigente</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">164 días</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">XYZ-789</div>
+        <div class="lc-sub">SOAT · venció 1 jun 2026</div>
+        <span class="badge badge-overdue mt-1.5">Vencido</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs" style="color:#dc2626">-18 días</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">XYZ-789</div>
+        <div class="lc-sub">Tecnomecánica · vence 22 jul 2026</div>
+        <span class="badge badge-warning mt-1.5">Por vencer</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">33 días</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">JKL-456</div>
+        <div class="lc-sub">SOAT · vence 10 ene 2027</div>
+        <span class="badge badge-active mt-1.5">Vigente</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">205 días</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">MNO-321</div>
+        <div class="lc-sub">SOAT · venció 5 may 2026</div>
+        <span class="badge badge-overdue mt-1.5">Vencido</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs" style="color:#dc2626">-45 días</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">PQR-654</div>
+        <div class="lc-sub">Tecnomecánica · vence 8 mar 2027</div>
+        <span class="badge badge-active mt-1.5">Vigente</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">262 días</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">STU-987</div>
+        <div class="lc-sub">SOAT · vence 25 jul 2026</div>
+        <span class="badge badge-warning mt-1.5">Por vencer</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">36 días</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">STU-987</div>
+        <div class="lc-sub">Tecnomecánica · vence 14 feb 2027</div>
+        <span class="badge badge-active mt-1.5">Vigente</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">240 días</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+  </div>
+
+</main>
+
+<script src="shell.js"></script>
+<script>
+  function setSeg(el) {
+    el.parentElement.querySelectorAll('.seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

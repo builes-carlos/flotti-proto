@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Acuerdo — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="acuerdos" data-title="Acuerdo">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <a href="acuerdos.html" class="text-sm text-slate-500 mb-3 inline-block">← Volver</a>
+
+  <!-- Header card -->
+  <div class="card p-5 mb-4">
+    <div class="flex items-start justify-between gap-3">
+      <div>
+        <h1 class="text-xl font-bold font-mono text-slate-900">CT-2026-014</h1>
+        <p class="text-sm text-slate-500 mt-0.5"><span class="font-mono">ABC123</span> · Juan Pérez Gómez</p>
+      </div>
+      <a href="#" class="btn btn-secondary btn-sm flex-shrink-0">Editar</a>
+    </div>
+    <div class="flex flex-wrap gap-2 mt-3">
+      <span class="badge badge-active">Activo</span>
+    </div>
+  </div>
+
+  <!-- Términos -->
+  <div class="card p-5 mb-4">
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Términos del acuerdo</h2>
+    <div class="space-y-2 text-sm">
+      <div class="flex justify-between">
+        <span class="text-slate-500">Cuota mensual</span>
+        <span class="font-bold money text-slate-900">$250.000</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Frecuencia</span>
+        <span class="text-slate-700">Mensual</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Fecha inicio</span>
+        <span class="text-slate-700">01/01/2026</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Fecha fin (estimada)</span>
+        <span class="text-slate-700">31/12/2026</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Nº de cuotas</span>
+        <span class="text-slate-700">12</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Día de vencimiento</span>
+        <span class="text-slate-700">Día 15 de cada mes</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resumen de pagos -->
+  <div class="card p-5 mb-4">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Resumen de pagos</h2>
+      <a href="cuotas.html" class="text-xs text-indigo-600 font-semibold">Ver cuotas</a>
+    </div>
+
+    <div class="totals-strip mb-4">
+      <div class="tot">
+        <div class="lbl">Pagadas</div>
+        <div class="val" style="color:#059669">5</div>
+      </div>
+      <div class="tot">
+        <div class="lbl">Pendientes</div>
+        <div class="val" style="color:#92400e">6</div>
+      </div>
+      <div class="tot">
+        <div class="lbl">Vencidas</div>
+        <div class="val" style="color:#9f1239">1</div>
+      </div>
+    </div>
+
+    <div class="space-y-2 text-sm">
+      <div class="flex justify-between">
+        <span class="text-slate-500">Total recaudado</span>
+        <span class="font-bold money text-emerald-700">$1.250.000</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Saldo vencido</span>
+        <span class="font-bold money text-red-600">$250.000</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Cuota en revisión</span>
+        <span class="text-slate-400">Ninguna</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conductor y vehículo -->
+  <div class="card p-5 mb-4">
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Partes</h2>
+    <div class="space-y-2 text-sm">
+      <div class="flex justify-between">
+        <span class="text-slate-500">Conductor</span>
+        <a href="conductor-detalle.html" class="text-indigo-600 font-semibold">Juan Pérez Gómez</a>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">C.C.</span>
+        <span class="text-slate-700">12.345.678</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Vehículo</span>
+        <a href="vehiculo-detalle.html" class="text-indigo-600 font-mono font-semibold">ABC123</a>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Tipo / Modelo</span>
+        <span class="text-slate-700">Carro · Chevrolet Spark 2021</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Acciones -->
+  <div class="flex gap-2">
+    <button class="btn btn-warning btn-block">Suspender acuerdo</button>
+    <button class="btn btn-danger btn-block">Cancelar acuerdo</button>
+  </div>
+
+</main>
+
+<script src="shell.js"></script>
+</body>
+</html>

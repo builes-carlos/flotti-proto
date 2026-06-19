@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pagos — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="pagos" data-title="Pagos">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <!-- Title -->
+  <div class="flex items-end justify-between mb-3">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-bold text-slate-900">Pagos</h1>
+      <p class="hidden lg:block text-sm text-slate-400 mt-0.5">Comprobantes de pago recibidos</p>
+    </div>
+    <a href="#" class="hidden lg:inline-flex btn btn-secondary btn-sm">Exportar CSV</a>
+  </div>
+
+  <!-- Totals strip -->
+  <div class="totals-strip mb-3">
+    <div class="tot"><div class="lbl">Recibidos</div><div class="val">$18,4M</div></div>
+    <div class="tot"><div class="lbl">Conciliados</div><div class="val" style="color:#059669">$16,2M</div></div>
+    <div class="tot"><div class="lbl">Sin asociar</div><div class="val" style="color:#7c3aed">$2,2M</div></div>
+  </div>
+
+  <!-- Filter: segmented control + sheet trigger -->
+  <div class="flex items-center gap-2 mb-3">
+    <div class="segmented flex-1">
+      <button class="seg active" onclick="setSeg(this)">Todos</button>
+      <button class="seg" onclick="setSeg(this)">Conciliados</button>
+      <button class="seg" onclick="setSeg(this)">Sin asociar</button>
+      <button class="seg" onclick="setSeg(this)">Rechazados</button>
+    </div>
+    <button onclick="FlottiShell.openSheet('filter-sheet')" class="btn btn-secondary btn-sm flex-shrink-0" aria-label="Filtros">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 4.5h18M6 12h12M10 19.5h4" stroke-linecap="round"/></svg>
+      <span class="hidden sm:inline">Filtros</span>
+    </button>
+  </div>
+
+  <!-- ===== MOBILE: card list ===== -->
+  <div class="space-y-2">
+
+    <a href="pago-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">$250.000</div>
+        <div class="lc-sub"><span class="font-mono">ABC123</span> · Juan Pérez · 14 jun 2026</div>
+        <div class="lc-sub">Bre-B</div>
+        <span class="badge badge-linked mt-1.5">Conciliado</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Cuota #7</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="pago-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">$180.000</div>
+        <div class="lc-sub"><span class="font-mono">XYZ789</span> · María Restrepo · 20 jun 2026</div>
+        <div class="lc-sub">Bre-B</div>
+        <span class="badge badge-linked mt-1.5">Conciliado</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Cuota #12</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="pago-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">$130.000</div>
+        <div class="lc-sub"><span class="font-mono">JKL456</span> · Andrés Galindo · 26 jun 2026</div>
+        <div class="lc-sub">Efectivo</div>
+        <span class="badge badge-linked mt-1.5">Conciliado</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Cuota #3</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="pago-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">$250.000</div>
+        <div class="lc-sub"><span class="font-mono">PQR654</span> · Diego Mora · 1 jul 2026</div>
+        <div class="lc-sub">Bre-B</div>
+        <span class="badge badge-review mt-1.5">En revisión</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Sin cuota</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="pago-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">$200.000</div>
+        <div class="lc-sub"><span class="font-mono">STU987</span> · Carlos Ríos · 18 jun 2026</div>
+        <div class="lc-sub">Email banco · Bancolombia</div>
+        <span class="badge badge-pending mt-1.5">Validación banco</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Sin cuota</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="pago-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">$85.000</div>
+        <div class="lc-sub"><span class="font-mono">VWX111</span> · Luis Bermúdez · 10 jun 2026</div>
+        <div class="lc-sub">Bre-B</div>
+        <span class="badge badge-rejected mt-1.5">Rechazado</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Sin cuota</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+  </div>
+
+  <!-- Pagination -->
+  <div class="flex items-center justify-between mt-4 text-sm text-slate-500">
+    <span>6 de 98 pagos</span>
+    <div class="flex gap-2">
+      <button class="btn btn-secondary btn-sm" disabled>Anterior</button>
+      <button class="btn btn-secondary btn-sm">Siguiente</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- Filter bottom-sheet -->
+<div class="sheet-backdrop" id="filter-sheet-backdrop" onclick="FlottiShell.closeSheet('filter-sheet')"></div>
+<div class="sheet" id="filter-sheet">
+  <div class="sheet-handle"></div>
+  <div class="flex items-center justify-between mb-3"><span class="text-sm font-bold text-slate-900">Filtros</span><button onclick="FlottiShell.closeSheet('filter-sheet')" class="text-sm text-slate-400">Cerrar</button></div>
+  <div class="field"><label>Vehículo</label><select><option>Todos los vehículos</option><option>ABC123</option><option>XYZ789</option><option>JKL456</option></select></div>
+  <div class="field"><label>Método de pago</label><select><option>Todos</option><option>Bre-B</option><option>Efectivo</option><option>Email banco</option></select></div>
+  <div class="grid grid-cols-2 gap-3">
+    <div class="field"><label>Desde</label><input type="date"></div>
+    <div class="field"><label>Hasta</label><input type="date"></div>
+  </div>
+  <div class="field"><label>Ordenar</label><select><option>Más reciente primero</option><option>Mayor monto</option><option>Estado</option></select></div>
+  <div class="flex gap-2">
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-secondary btn-block">Limpiar</button>
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-primary btn-block">Aplicar</button>
+  </div>
+</div>
+
+<script src="shell.js"></script>
+<script>
+  function setSeg(el) {
+    el.parentElement.querySelectorAll('.seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

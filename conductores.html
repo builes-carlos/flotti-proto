@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Conductores — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="conductores" data-title="Conductores">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <!-- Title -->
+  <div class="flex items-end justify-between mb-3">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-bold text-slate-900">Conductores</h1>
+      <p class="hidden lg:block text-sm text-slate-400 mt-0.5">Conductores vinculados a la flota</p>
+    </div>
+    <a href="conductor-form.html" class="btn btn-primary btn-sm">+ Nuevo conductor</a>
+  </div>
+
+  <!-- Filter row -->
+  <div class="flex items-center gap-2 mb-3">
+    <div class="segmented flex-1">
+      <button class="seg active" onclick="setSeg(this)">Todos</button>
+      <button class="seg" onclick="setSeg(this)">Activos</button>
+      <button class="seg" onclick="setSeg(this)">Disponibles</button>
+      <button class="seg" onclick="setSeg(this)">Retirados</button>
+      <button class="seg" onclick="setSeg(this)">Sin Telegram</button>
+    </div>
+    <button onclick="FlottiShell.openSheet('filter-sheet')" class="btn btn-secondary btn-sm flex-shrink-0" aria-label="Filtros">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 4.5h18M6 12h12M10 19.5h4" stroke-linecap="round"/></svg>
+      <span class="hidden sm:inline">Filtros</span>
+    </button>
+  </div>
+
+  <!-- ===== MOBILE: card list ===== -->
+  <div class="space-y-2">
+
+    <a href="conductor-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Juan Pérez Gómez</div>
+        <div class="lc-sub">12.345.678 · +57 311 234 5678 · <span class="font-mono">ABC123</span></div>
+        <div class="flex gap-1.5 mt-1.5 flex-wrap">
+          <span class="badge badge-active">Telegram registrado</span>
+          <span class="badge badge-active">Activo</span>
+        </div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="conductor-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">María Restrepo López</div>
+        <div class="lc-sub">98.765.432 · +57 300 987 6543 · <span class="font-mono">XYZ789</span></div>
+        <div class="flex gap-1.5 mt-1.5 flex-wrap">
+          <span class="badge badge-active">Telegram registrado</span>
+          <span class="badge badge-active">Activo</span>
+        </div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="conductor-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Andrés Galindo Torres</div>
+        <div class="lc-sub">55.443.321 · +57 315 443 2211 · <span class="font-mono">JKL456</span></div>
+        <div class="flex gap-1.5 mt-1.5 flex-wrap">
+          <span class="badge badge-inactive">Sin Telegram</span>
+          <span class="badge badge-available">Disponible</span>
+        </div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="conductor-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Sofía Cárdenas Ruiz</div>
+        <div class="lc-sub">71.882.019 · +57 320 771 0033 · <span class="font-mono">MNO321</span></div>
+        <div class="flex gap-1.5 mt-1.5 flex-wrap">
+          <span class="badge badge-active">Telegram registrado</span>
+          <span class="badge badge-active">Activo</span>
+        </div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="conductor-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Diego Mora Castillo</div>
+        <div class="lc-sub">80.334.512 · +57 316 800 4455 · <span class="font-mono">PQR654</span></div>
+        <div class="flex gap-1.5 mt-1.5 flex-wrap">
+          <span class="badge badge-inactive">Sin Telegram</span>
+          <span class="badge badge-active">Activo</span>
+        </div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="conductor-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">Carlos Herrera Duque</div>
+        <div class="lc-sub">45.678.901 · +57 304 562 7890 · Sin placa</div>
+        <div class="flex gap-1.5 mt-1.5 flex-wrap">
+          <span class="badge badge-active">Telegram registrado</span>
+          <span class="badge badge-retired">Retirado</span>
+        </div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+  </div>
+
+  <!-- pagination -->
+  <div class="flex items-center justify-between mt-4 text-sm text-slate-500">
+    <span>6 de 6 conductores</span>
+    <div class="flex gap-2">
+      <button class="btn btn-secondary btn-sm" disabled>Anterior</button>
+      <button class="btn btn-secondary btn-sm" disabled>Siguiente</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- Filter bottom-sheet -->
+<div class="sheet-backdrop" id="filter-sheet-backdrop" onclick="FlottiShell.closeSheet('filter-sheet')"></div>
+<div class="sheet" id="filter-sheet">
+  <div class="sheet-handle"></div>
+  <div class="flex items-center justify-between mb-3">
+    <span class="text-sm font-bold text-slate-900">Filtros</span>
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="text-sm text-slate-400">Cerrar</button>
+  </div>
+  <div class="field"><label>Telegram</label><select><option>Todos</option><option>Registrado</option><option>Sin Telegram</option></select></div>
+  <div class="field"><label>Ordenar</label><select><option>Nombre A→Z</option><option>Más recientes</option><option>Estado</option></select></div>
+  <div class="flex gap-2">
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-secondary btn-block">Limpiar</button>
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-primary btn-block">Aplicar</button>
+  </div>
+</div>
+
+<script src="shell.js"></script>
+<script>
+  function setSeg(el) {
+    el.parentElement.querySelectorAll('.seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

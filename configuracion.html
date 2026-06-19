@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Configuración — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="settings" data-title="Configuración">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <div class="mb-4">
+    <h1 class="text-xl lg:text-2xl font-bold text-slate-900">Configuración</h1>
+    <p class="hidden lg:block text-sm text-slate-400 mt-0.5">Ajustes generales de la plataforma</p>
+  </div>
+
+  <!-- Section: Recordatorios -->
+  <div class="card p-5 mb-4">
+    <h2 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">Recordatorios</h2>
+    <div class="field">
+      <label>Hora de envío — cuotas diarias</label>
+      <input type="text" value="08:00">
+      <small>Formato HH:MM (hora Bogotá)</small>
+    </div>
+    <div class="field">
+      <label>Hora de envío — cuotas semanales</label>
+      <input type="text" value="08:00">
+    </div>
+    <div class="field">
+      <label>Hora de envío — cuotas mensuales</label>
+      <input type="text" value="09:00">
+    </div>
+    <div class="field">
+      <label>Días de anticipación — cuotas semanales</label>
+      <input type="number" value="2" min="0" max="7">
+      <small>Días antes del vencimiento para enviar el recordatorio</small>
+    </div>
+    <div class="field">
+      <label>Días de anticipación — cuotas mensuales</label>
+      <input type="number" value="5" min="0" max="30">
+    </div>
+    <button class="btn btn-primary btn-sm">Guardar recordatorios</button>
+  </div>
+
+  <!-- Section: Empresa -->
+  <div class="card p-5 mb-4">
+    <h2 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">Datos de la empresa</h2>
+    <div class="field">
+      <label>Nombre de la empresa</label>
+      <input type="text" value="Taxis Bogotá S.A.S.">
+    </div>
+    <div class="field">
+      <label>NIT</label>
+      <input type="text" value="900.123.456-7">
+    </div>
+    <div class="field">
+      <label>Ciudad</label>
+      <input type="text" value="Bogotá, D.C.">
+    </div>
+    <div class="field">
+      <label>Teléfono de contacto</label>
+      <input type="tel" value="+57 601 234 5678">
+    </div>
+    <button class="btn btn-primary btn-sm">Guardar empresa</button>
+  </div>
+
+  <!-- Section: Idioma -->
+  <div class="card p-5 mb-4">
+    <h2 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">Idioma</h2>
+    <div class="field">
+      <label>Idioma del panel</label>
+      <select>
+        <option value="es" selected>Español</option>
+        <option value="en">English</option>
+        <option value="pt">Português</option>
+      </select>
+    </div>
+    <button class="btn btn-primary btn-sm">Guardar idioma</button>
+  </div>
+
+</main>
+
+<script src="shell.js"></script>
+</body>
+</html>

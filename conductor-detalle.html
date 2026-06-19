@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Conductor — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="conductores" data-title="Conductor">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <a href="conductores.html" class="text-sm text-slate-500 mb-3 inline-block">← Volver</a>
+
+  <!-- Header card -->
+  <div class="card p-5 mb-4">
+    <div class="flex items-start justify-between gap-3">
+      <div>
+        <h1 class="text-xl font-bold text-slate-900">Juan Pérez Gómez</h1>
+        <p class="text-sm text-slate-500 mt-0.5">C.C. 12.345.678</p>
+      </div>
+      <a href="conductor-form.html" class="btn btn-secondary btn-sm flex-shrink-0">Editar</a>
+    </div>
+    <div class="flex flex-wrap gap-2 mt-3">
+      <span class="badge badge-active">Activo</span>
+      <span class="badge badge-active">Telegram registrado</span>
+    </div>
+  </div>
+
+  <!-- Contacto -->
+  <div class="card p-5 mb-4">
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Contacto</h2>
+    <div class="space-y-2 text-sm">
+      <div class="flex justify-between">
+        <span class="text-slate-500">Teléfono</span>
+        <a href="tel:+573112345678" class="text-indigo-600 font-medium">+57 311 234 5678</a>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Email</span>
+        <a href="mailto:juan.perez@email.com" class="text-indigo-600 font-medium truncate max-w-[60%] text-right">juan.perez@email.com</a>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Telegram ID</span>
+        <span class="font-mono font-semibold text-slate-700">@juanperez91</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vehículo y acuerdo activo -->
+  <div class="card p-5 mb-4">
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Acuerdo activo</h2>
+    <div class="space-y-2 text-sm">
+      <div class="flex justify-between">
+        <span class="text-slate-500">Vehículo</span>
+        <a href="vehiculo-detalle.html" class="text-indigo-600 font-mono font-semibold">ABC123</a>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Contrato</span>
+        <a href="acuerdo-detalle.html" class="text-indigo-600 font-mono font-semibold">CT-2026-014</a>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Cuota mensual</span>
+        <span class="font-semibold money">$250.000</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Inicio</span>
+        <span class="text-slate-700">01/01/2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CV / Documentos -->
+  <div class="card p-5 mb-4">
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Documentos</h2>
+    <div class="space-y-2 text-sm">
+      <div class="flex justify-between items-center">
+        <span class="text-slate-500">Licencia de conducción</span>
+        <span class="badge badge-active">Vigente</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-slate-500">Antecedentes judiciales</span>
+        <a href="#" class="text-indigo-600 font-medium">Ver PDF</a>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-slate-500">Foto cédula</span>
+        <a href="#" class="text-indigo-600 font-medium">Ver PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Historial de cuotas -->
+  <div class="card p-5 mb-4">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Últimas cuotas</h2>
+      <a href="cuotas.html" class="text-xs text-indigo-600 font-semibold">Ver todas</a>
+    </div>
+    <div class="space-y-2">
+
+      <a href="cuota-detalle.html" class="list-card">
+        <div class="lc-main">
+          <div class="lc-title"><span class="font-mono">ABC123</span> <span class="text-slate-400 font-normal">#7</span></div>
+          <div class="lc-sub">Vence 15 jun 2026</div>
+          <span class="badge badge-overdue mt-1.5">Vencida</span>
+        </div>
+        <div class="lc-right">
+          <div class="lc-amount" style="color:#dc2626">$250.000</div>
+          <div class="text-xs text-slate-400 mt-0.5">saldo</div>
+        </div>
+        <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+
+      <a href="cuota-detalle.html" class="list-card">
+        <div class="lc-main">
+          <div class="lc-title"><span class="font-mono">ABC123</span> <span class="text-slate-400 font-normal">#6</span></div>
+          <div class="lc-sub">Vence 15 may 2026</div>
+          <span class="badge badge-paid mt-1.5">Pagada</span>
+        </div>
+        <div class="lc-right">
+          <div class="lc-amount text-slate-300">$0</div>
+          <div class="text-xs text-slate-400 mt-0.5">saldo</div>
+        </div>
+        <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+
+      <a href="cuota-detalle.html" class="list-card">
+        <div class="lc-main">
+          <div class="lc-title"><span class="font-mono">ABC123</span> <span class="text-slate-400 font-normal">#5</span></div>
+          <div class="lc-sub">Vence 15 abr 2026</div>
+          <span class="badge badge-paid mt-1.5">Pagada</span>
+        </div>
+        <div class="lc-right">
+          <div class="lc-amount text-slate-300">$0</div>
+          <div class="text-xs text-slate-400 mt-0.5">saldo</div>
+        </div>
+        <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+
+    </div>
+  </div>
+
+</main>
+
+<script src="shell.js"></script>
+</body>
+</html>

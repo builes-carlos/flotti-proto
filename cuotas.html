@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cuotas — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="cuotas" data-title="Cuotas">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <!-- Title -->
+  <div class="flex items-end justify-between mb-3">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-bold text-slate-900">Cuotas</h1>
+      <p class="hidden lg:block text-sm text-slate-400 mt-0.5">Estado de cobro por cuota</p>
+    </div>
+    <a href="#" class="hidden lg:inline-flex btn btn-secondary btn-sm">Exportar CSV</a>
+  </div>
+
+  <!-- Totals strip (summary-first) -->
+  <div class="totals-strip mb-3">
+    <div class="tot"><div class="lbl">Esperado</div><div class="val">$24,0M</div></div>
+    <div class="tot"><div class="lbl">Recaudado</div><div class="val" style="color:#059669">$18,4M</div></div>
+    <div class="tot"><div class="lbl">Vencido</div><div class="val" style="color:#dc2626">$2,25M</div></div>
+  </div>
+
+  <!-- Filter: segmented control + sheet trigger -->
+  <div class="flex items-center gap-2 mb-3">
+    <div class="segmented flex-1">
+      <button class="seg active" onclick="setSeg(this)">Todas</button>
+      <button class="seg" onclick="setSeg(this)">Vencidas</button>
+      <button class="seg" onclick="setSeg(this)">Pendientes</button>
+      <button class="seg" onclick="setSeg(this)">Pagadas</button>
+      <button class="seg" onclick="setSeg(this)">En revisión</button>
+    </div>
+    <button onclick="FlottiShell.openSheet('filter-sheet')" class="btn btn-secondary btn-sm flex-shrink-0" aria-label="Filtros">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 4.5h18M6 12h12M10 19.5h4" stroke-linecap="round"/></svg>
+      <span class="hidden sm:inline">Filtros</span>
+    </button>
+  </div>
+
+  <!-- ===== Card list (all widths) ===== -->
+  <div class="space-y-2">
+
+    <a href="cuota-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title"><span class="font-mono">ABC123</span> <span class="text-slate-400 font-normal">#7</span></div>
+        <div class="lc-sub">Juan Pérez · vence 15 jun</div>
+        <span class="badge badge-overdue mt-1.5">Vencida</span>
+      </div>
+      <div class="lc-right">
+        <div class="lc-amount" style="color:#dc2626">$250.000</div>
+        <div class="text-xs text-slate-400 mt-0.5">saldo</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="cuota-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title"><span class="font-mono">XYZ789</span> <span class="text-slate-400 font-normal">#12</span></div>
+        <div class="lc-sub">María Restrepo · vence 20 jun</div>
+        <span class="badge badge-paid mt-1.5">Pagada</span>
+      </div>
+      <div class="lc-right">
+        <div class="lc-amount text-slate-300">$0</div>
+        <div class="text-xs text-slate-400 mt-0.5">saldo</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="cuota-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title"><span class="font-mono">JKL456</span> <span class="text-slate-400 font-normal">#3</span></div>
+        <div class="lc-sub">Andrés Galindo · vence 28 jun</div>
+        <span class="badge badge-partial mt-1.5">Parcial</span>
+      </div>
+      <div class="lc-right">
+        <div class="lc-amount" style="color:#9a3412">$120.000</div>
+        <div class="text-xs text-slate-400 mt-0.5">saldo</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="cuota-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title"><span class="font-mono">MNO321</span> <span class="text-slate-400 font-normal">#5</span></div>
+        <div class="lc-sub">Sofía Cárdenas · vence 30 jun</div>
+        <span class="badge badge-pending mt-1.5">Pendiente</span>
+      </div>
+      <div class="lc-right">
+        <div class="lc-amount text-slate-700">$250.000</div>
+        <div class="text-xs text-slate-400 mt-0.5">saldo</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="cuota-detalle.html" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title"><span class="font-mono">PQR654</span> <span class="text-slate-400 font-normal">#9</span></div>
+        <div class="lc-sub">Diego Mora · vence 2 jul</div>
+        <span class="badge badge-review mt-1.5">En revisión</span>
+      </div>
+      <div class="lc-right">
+        <div class="lc-amount text-slate-700">$250.000</div>
+        <div class="text-xs text-slate-400 mt-0.5">saldo</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+  </div>
+
+  <!-- pagination -->
+  <div class="flex items-center justify-between mt-4 text-sm text-slate-500">
+    <span>5 de 142 cuotas</span>
+    <div class="flex gap-2">
+      <button class="btn btn-secondary btn-sm" disabled>Anterior</button>
+      <button class="btn btn-secondary btn-sm">Siguiente</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- Filter bottom-sheet -->
+<div class="sheet-backdrop" id="filter-sheet-backdrop" onclick="FlottiShell.closeSheet('filter-sheet')"></div>
+<div class="sheet" id="filter-sheet">
+  <div class="sheet-handle"></div>
+  <div class="flex items-center justify-between mb-3"><span class="text-sm font-bold text-slate-900">Filtros</span><button onclick="FlottiShell.closeSheet('filter-sheet')" class="text-sm text-slate-400">Cerrar</button></div>
+  <div class="field"><label>Vehículo</label><select><option>Todos los vehículos</option><option>ABC123</option><option>XYZ789</option></select></div>
+  <div class="grid grid-cols-2 gap-3">
+    <div class="field"><label>Desde</label><input type="date"></div>
+    <div class="field"><label>Hasta</label><input type="date"></div>
+  </div>
+  <div class="field"><label>Ordenar</label><select><option>Vehículo A→Z</option><option>Nº cuota</option><option>Pendientes primero</option></select></div>
+  <div class="flex gap-2">
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-secondary btn-block">Limpiar</button>
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-primary btn-block">Aplicar</button>
+  </div>
+</div>
+
+<script src="shell.js"></script>
+<script>
+  function setSeg(el) {
+    el.parentElement.querySelectorAll('.seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

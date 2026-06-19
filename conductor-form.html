@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Nuevo conductor — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="conductores" data-title="Nuevo conductor">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <a href="conductores.html" class="text-sm text-slate-500 mb-3 inline-block">← Volver</a>
+
+  <div class="mb-4">
+    <h1 class="text-xl font-bold text-slate-900">Nuevo conductor</h1>
+    <p class="text-sm text-slate-400 mt-0.5">Completa los datos para registrar un conductor.</p>
+  </div>
+
+  <form onsubmit="return false;">
+
+    <!-- Datos personales -->
+    <div class="card p-5 mb-4">
+      <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Datos personales</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4">
+
+        <div class="field">
+          <label for="nombre">Nombre completo <span class="text-red-500">*</span></label>
+          <input type="text" id="nombre" placeholder="Ej. Juan Pérez Gómez">
+        </div>
+
+        <div class="field">
+          <label for="cedula">Cédula <span class="text-red-500">*</span></label>
+          <input type="text" id="cedula" placeholder="Ej. 12345678">
+        </div>
+
+        <div class="field">
+          <label for="telefono">Teléfono <span class="text-red-500">*</span></label>
+          <input type="tel" id="telefono" placeholder="+57 300 000 0000">
+          <small>Número al que se enviará el enlace de Telegram.</small>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="conductor@email.com">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Vehículo -->
+    <div class="card p-5 mb-4">
+      <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Vehículo (opcional)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4">
+
+        <div class="field">
+          <label for="tipo-vehiculo">Tipo de vehículo</label>
+          <select id="tipo-vehiculo">
+            <option value="">— Sin asignar —</option>
+            <option>Carro</option>
+            <option>Moto</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="placa">Placa asignada</label>
+          <select id="placa">
+            <option value="">— Sin asignar —</option>
+            <option>JKL456 · Kia Picanto 2020</option>
+            <option>STU987 · Suzuki Alto 2018</option>
+          </select>
+          <small>Solo se muestran vehículos disponibles (sin acuerdo activo).</small>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Notas -->
+    <div class="card p-5 mb-6">
+      <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Notas</h2>
+      <div class="field" style="margin-bottom:0">
+        <label for="notas">Observaciones internas</label>
+        <textarea id="notas" rows="3" placeholder="Referencias, observaciones adicionales..."></textarea>
+      </div>
+    </div>
+
+    <!-- Actions — sticky on mobile, regular flow on desktop -->
+    <div class="fixed bottom-0 left-0 right-0 lg:static lg:bottom-auto z-10 bg-white border-t border-slate-200 lg:border-none lg:bg-transparent p-4 lg:p-0 flex gap-3" style="padding-bottom: calc(1rem + env(safe-area-inset-bottom));">
+      <a href="conductores.html" class="btn btn-secondary btn-block">Cancelar</a>
+      <button type="submit" class="btn btn-primary btn-block">Guardar conductor</button>
+    </div>
+
+  </form>
+
+</main>
+
+<script src="shell.js"></script>
+</body>
+</html>

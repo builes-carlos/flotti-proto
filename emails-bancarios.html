@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Emails bancarios — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="emails" data-title="Emails bancarios">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <!-- Title -->
+  <div class="flex items-end justify-between mb-3">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-bold text-slate-900">Emails bancarios</h1>
+      <p class="hidden lg:block text-sm text-slate-400 mt-0.5">Notificaciones de transferencia recibidas</p>
+    </div>
+  </div>
+
+  <!-- Totals strip -->
+  <div class="totals-strip mb-3">
+    <div class="tot"><div class="lbl">Recibidos</div><div class="val">28</div></div>
+    <div class="tot"><div class="lbl">Asociados</div><div class="val" style="color:#059669">26</div></div>
+    <div class="tot"><div class="lbl">Huérfanos</div><div class="val" style="color:#7c3aed">2</div></div>
+  </div>
+
+  <!-- Segmented + filter -->
+  <div class="flex items-center gap-2 mb-3">
+    <div class="segmented flex-1">
+      <button class="seg active" onclick="setSeg(this)">Todos</button>
+      <button class="seg" onclick="setSeg(this)">Asociados</button>
+      <button class="seg" onclick="setSeg(this)">Huérfanos</button>
+    </div>
+    <button onclick="FlottiShell.openSheet('filter-sheet')" class="btn btn-secondary btn-sm flex-shrink-0" aria-label="Filtros">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 4.5h18M6 12h12M10 19.5h4" stroke-linecap="round"/></svg>
+      <span class="hidden sm:inline">Filtros</span>
+    </button>
+  </div>
+
+  <!-- Card list -->
+  <div class="space-y-2">
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">$250.000</div>
+        <div class="lc-sub">notificaciones@bancolombia.com.co</div>
+        <div class="lc-sub">Recibido 14 jun 2026 · 08:31</div>
+        <span class="badge badge-linked mt-1.5">Asociado</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Cuota #7</div>
+        <div class="text-xs text-mono text-slate-400 mt-0.5">ABC123</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">$180.000</div>
+        <div class="lc-sub">alertas@davivienda.com.co</div>
+        <div class="lc-sub">Recibido 20 jun 2026 · 09:13</div>
+        <span class="badge badge-linked mt-1.5">Asociado</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Cuota #12</div>
+        <div class="text-xs font-mono text-slate-400 mt-0.5">XYZ789</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">$320.000</div>
+        <div class="lc-sub">notificaciones@bancolombia.com.co</div>
+        <div class="lc-sub">Recibido 17 jun 2026 · 14:52</div>
+        <span class="badge badge-linked mt-1.5">Asociado</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Cuota #4</div>
+        <div class="text-xs font-mono text-slate-400 mt-0.5">MNO321</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <!-- Huérfano 1 -->
+    <a href="#" class="list-card" style="border-color:#ede9fe; background:#faf5ff;">
+      <div class="lc-main">
+        <div class="lc-title">$200.000</div>
+        <div class="lc-sub">alertas@davivienda.com.co</div>
+        <div class="lc-sub">Recibido 18 jun 2026 · 11:04</div>
+        <span class="badge badge-warning mt-1.5">Huérfano</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Sin cuota</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <!-- Huérfano 2 -->
+    <a href="#" class="list-card" style="border-color:#ede9fe; background:#faf5ff;">
+      <div class="lc-main">
+        <div class="lc-title">$115.000</div>
+        <div class="lc-sub">notificaciones@bancolombia.com.co</div>
+        <div class="lc-sub">Recibido 19 jun 2026 · 07:30</div>
+        <span class="badge badge-warning mt-1.5">Huérfano</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Sin cuota</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title">$250.000</div>
+        <div class="lc-sub">notificaciones@bancolombia.com.co</div>
+        <div class="lc-sub">Recibido 21 jun 2026 · 10:05</div>
+        <span class="badge badge-linked mt-1.5">Asociado</span>
+      </div>
+      <div class="lc-right">
+        <div class="text-xs text-slate-400">Cuota #9</div>
+        <div class="text-xs font-mono text-slate-400 mt-0.5">PQR654</div>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+  </div>
+
+  <!-- Pagination -->
+  <div class="flex items-center justify-between mt-4 text-sm text-slate-500">
+    <span>6 de 28 emails</span>
+    <div class="flex gap-2">
+      <button class="btn btn-secondary btn-sm" disabled>Anterior</button>
+      <button class="btn btn-secondary btn-sm">Siguiente</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- Filter bottom-sheet -->
+<div class="sheet-backdrop" id="filter-sheet-backdrop" onclick="FlottiShell.closeSheet('filter-sheet')"></div>
+<div class="sheet" id="filter-sheet">
+  <div class="sheet-handle"></div>
+  <div class="flex items-center justify-between mb-3"><span class="text-sm font-bold text-slate-900">Filtros</span><button onclick="FlottiShell.closeSheet('filter-sheet')" class="text-sm text-slate-400">Cerrar</button></div>
+  <div class="field"><label>Banco / remitente</label><select><option>Todos</option><option>Bancolombia</option><option>Davivienda</option><option>Nequi</option></select></div>
+  <div class="grid grid-cols-2 gap-3">
+    <div class="field"><label>Desde</label><input type="date"></div>
+    <div class="field"><label>Hasta</label><input type="date"></div>
+  </div>
+  <div class="field"><label>Monto mínimo</label><input type="number" placeholder="$0"></div>
+  <div class="flex gap-2">
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-secondary btn-block">Limpiar</button>
+    <button onclick="FlottiShell.closeSheet('filter-sheet')" class="btn btn-primary btn-block">Aplicar</button>
+  </div>
+</div>
+
+<script src="shell.js"></script>
+<script>
+  function setSeg(el) {
+    el.parentElement.querySelectorAll('.seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

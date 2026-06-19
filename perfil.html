@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Perfil — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="perfil" data-title="Perfil">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <div class="mb-4">
+    <h1 class="text-xl lg:text-2xl font-bold text-slate-900">Perfil</h1>
+  </div>
+
+  <!-- Avatar + identity -->
+  <div class="card p-5 mb-4 flex items-center gap-4">
+    <div class="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 text-2xl font-bold text-white"
+         style="background: #1e1b4b;">
+      C
+    </div>
+    <div>
+      <p class="text-lg font-bold text-slate-900">Carlos Ramírez</p>
+      <p class="text-sm text-slate-500">carlos@taxisbogota.co</p>
+      <span class="badge badge-active mt-1.5">Administrador</span>
+    </div>
+  </div>
+
+  <!-- Editable fields -->
+  <div class="card p-5 mb-4">
+    <h2 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">Editar datos</h2>
+    <div class="field">
+      <label>Nombre completo</label>
+      <input type="text" value="Carlos Ramírez">
+    </div>
+    <div class="field">
+      <label>Correo electrónico</label>
+      <input type="email" value="carlos@taxisbogota.co">
+    </div>
+    <div class="field">
+      <label>Nueva contraseña</label>
+      <input type="password" placeholder="Dejar vacío para no cambiar">
+    </div>
+    <div class="field">
+      <label>Confirmar contraseña</label>
+      <input type="password" placeholder="Repetir nueva contraseña">
+    </div>
+    <button class="btn btn-primary">Guardar cambios</button>
+  </div>
+
+  <!-- Empresa / tenant info -->
+  <div class="card p-5 mb-4">
+    <h2 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-3">Empresa</h2>
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm font-semibold text-slate-800">Taxis Bogotá S.A.S.</p>
+        <p class="text-xs text-slate-400">NIT 900.123.456-7 · Bogotá, D.C.</p>
+      </div>
+      <a href="configuracion.html" class="btn btn-secondary btn-sm">Configurar</a>
+    </div>
+  </div>
+
+  <!-- Logout -->
+  <a href="login.html" class="btn btn-danger btn-block">Cerrar sesión</a>
+
+</main>
+
+<script src="shell.js"></script>
+</body>
+</html>

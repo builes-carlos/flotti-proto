@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Rastreo GPS — Flotti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="bg-slate-50 min-h-screen" data-page="rastreo" data-title="Rastreo GPS">
+
+<main class="max-w-2xl mx-auto px-4 pt-4 pb-8">
+
+  <div class="flex items-end justify-between mb-3">
+    <div>
+      <h1 class="text-xl lg:text-2xl font-bold text-slate-900">Rastreo GPS</h1>
+      <p class="hidden lg:block text-sm text-slate-400 mt-0.5">Ubicación en tiempo real de la flota</p>
+    </div>
+    <span class="text-xs text-slate-400">Actualizado hace 42 s</span>
+  </div>
+
+  <!-- Map placeholder -->
+  <div class="card mb-4 overflow-hidden">
+    <div class="flex items-center justify-center flex-col gap-2"
+         style="height:220px; background: linear-gradient(135deg,#e2e8f0 0%,#cbd5e1 50%,#94a3b8 100%);">
+      <span style="font-size:2.5rem;">📍</span>
+      <span class="text-sm font-semibold text-slate-600">Mapa en vivo (demo)</span>
+      <span class="text-xs text-slate-400">Bogotá, D.C.</span>
+    </div>
+  </div>
+
+  <!-- Totals strip -->
+  <div class="totals-strip mb-3">
+    <div class="tot"><div class="lbl">En línea</div><div class="val" style="color:#059669">4</div></div>
+    <div class="tot"><div class="lbl">Fuera de línea</div><div class="val" style="color:#64748b">1</div></div>
+    <div class="tot"><div class="lbl">Flota</div><div class="val">5</div></div>
+  </div>
+
+  <!-- Vehicle list -->
+  <div class="space-y-2">
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">ABC-123</div>
+        <div class="lc-sub">Chapinero · 38 km/h</div>
+        <div class="text-xs text-slate-400 mt-0.5">Últ. actualización: hace 18 s</div>
+      </div>
+      <div class="lc-right">
+        <span class="badge badge-active">En línea</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">XYZ-789</div>
+        <div class="lc-sub">Kennedy · 0 km/h (detenido)</div>
+        <div class="text-xs text-slate-400 mt-0.5">Últ. actualización: hace 2 min</div>
+      </div>
+      <div class="lc-right">
+        <span class="badge badge-active">En línea</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">JKL-456</div>
+        <div class="lc-sub">Suba · 55 km/h</div>
+        <div class="text-xs text-slate-400 mt-0.5">Últ. actualización: hace 31 s</div>
+      </div>
+      <div class="lc-right">
+        <span class="badge badge-active">En línea</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">MNO-321</div>
+        <div class="lc-sub">Usaquén · 22 km/h</div>
+        <div class="text-xs text-slate-400 mt-0.5">Últ. actualización: hace 1 min</div>
+      </div>
+      <div class="lc-right">
+        <span class="badge badge-active">En línea</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a href="#" class="list-card">
+      <div class="lc-main">
+        <div class="lc-title font-mono">PQR-654</div>
+        <div class="lc-sub">Bosa · última posición conocida</div>
+        <div class="text-xs text-slate-400 mt-0.5">Últ. actualización: hace 47 min</div>
+      </div>
+      <div class="lc-right">
+        <span class="badge badge-inactive">Fuera de línea</span>
+      </div>
+      <svg class="chevron w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+  </div>
+
+</main>
+
+<script src="shell.js"></script>
+</body>
+</html>
